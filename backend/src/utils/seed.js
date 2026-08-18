@@ -33,8 +33,8 @@ const seedData = async () => {
     // Create admin user
     await User.create({
       name: 'Admin User',
-      email: 'admin@caratlane.com',
-      password: 'admin123',
+      email: 'admin@oncemore.com',
+      password: 'once123',
       role: USER_ROLES.ADMIN,
       tier: LOYALTY_TIERS.PLATINUM,
     })
