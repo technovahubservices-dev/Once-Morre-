@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../../context/AuthContext.jsx'
-
-const API_BASE = 'http://localhost:5000/api'
+import { API_BASE } from '../../services/apiConfig.js'
 
 export default function PersonalInfo() {
   const { user, token, updateUser } = useAuth()

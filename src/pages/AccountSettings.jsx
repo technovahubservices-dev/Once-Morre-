@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext.jsx'
+import { API_BASE } from '../services/apiConfig.js'
 
 export default function AccountSettings() {
   const { user, token, updateUser, changePassword } = useAuth()
@@ -26,7 +27,7 @@ export default function AccountSettings() {
     setSaving(true)
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/profile', {
+      const res = await fetch(`${API_BASE}/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

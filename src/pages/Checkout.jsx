@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
+import { API_BASE } from '../services/apiConfig.js'
 
 const PAYMENT_METHODS = [
   { id: 'card', label: 'Credit / Debit Card', icon: 'credit_card' },
@@ -50,7 +51,7 @@ export default function Checkout() {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:5000/api/orders', {
+      const res = await fetch(`${API_BASE}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

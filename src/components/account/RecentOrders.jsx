@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
-
-const API_BASE = 'http://localhost:5000/api'
+import { API_BASE } from '../../services/apiConfig.js'
 
 const statusConfig = {
   pending: { label: 'Pending', color: 'bg-yellow-50 text-yellow-700 border-yellow-200', icon: 'schedule' },

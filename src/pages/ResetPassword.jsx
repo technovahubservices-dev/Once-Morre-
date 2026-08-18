@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { API_BASE } from '../services/apiConfig.js'
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams()
@@ -34,7 +35,7 @@ export default function ResetPassword() {
     setLoading(true)
 
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/reset-password/${token}`, {
+      const res = await fetch(`${API_BASE}/auth/reset-password/${token}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newPassword: password }),
