@@ -28,3 +28,7 @@ Thumbs.db
 
 # Misc
 coverage/
+
+# Local backups of the former nested Git repositories
+.src-submodule-git-backup/
+.backend-submodule-git-backup/
