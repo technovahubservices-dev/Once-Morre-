@@ -52,6 +52,39 @@ export const login = asyncHandler(async (req, res) => {
   }, 'Login successful')
 })
 
+export const adminLogin = asyncHandler(async (req, res) => {
+  const { email, password } = req.body
+  const normalizedEmail = email.trim().toLowerCase()
+
+  const user = await User.findOne({ email: normalizedEmail }).select('+password')
+  if (!user || !(await user.comparePassword(password))) {
+    return errorResponse(res, 'Invalid email or password', HTTP_STATUS.UNAUTHORIZED)
+  }
+
+  if (user.role !== USER_ROLES.ADMIN) {
+    return errorResponse(res, 'Admin access is required', HTTP_STATUS.FORBIDDEN)
+  }
+
+  if (!user.isActive) {
+    return errorResponse(res, 'Account is deactivated. Please contact support.', HTTP_STATUS.FORBIDDEN)
+  }
+
+  user.lastLogin = new Date()
+  await user.save()
+
+  return successResponse(res, {
+    token: generateToken(user._id),
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      loyaltyPoints: user.loyaltyPoints,
+      tier: user.tier,
+    },
+  }, 'Admin login successful')
+})
+
 export const getProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select('-password')
   if (!user) {

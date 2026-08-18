@@ -17,6 +17,11 @@ export const login = asyncHandler(async (req, res) => {
   return result
 })
 
+export const adminLogin = asyncHandler(async (req, res) => {
+  const result = await authService.adminLogin(req, res)
+  return result
+})
+
 export const logout = asyncHandler(async (req, res) => {
   res.clearCookie('token')
   return successResponse(res, null, 'Logged out successfully')

@@ -18,6 +18,11 @@ router.post('/login', validate([
   body('password').notEmpty().withMessage('Password is required'),
 ]), authController.login)
 
+router.post('/admin-login', validate([
+  body('email').isEmail().withMessage('Valid email is required'),
+  body('password').notEmpty().withMessage('Password is required'),
+]), authController.adminLogin)
+
 router.post('/logout', authMiddleware, authController.logout)
 
 router.get('/profile', authMiddleware, authController.getProfile)
