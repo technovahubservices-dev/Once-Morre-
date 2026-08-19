@@ -1,13 +1,9 @@
-import curdImage from '../assets/images/curd.jpg'
-import buttermilkImage from '../assets/images/buttermilk.jpg'
-import palkovaImage from '../assets/images/palkova.jpg'
-import gheeImage from '../assets/images/Ghee packed.jpg'
-import paneerImage from '../assets/images/paneer.jpg'
-import curdPackedImage from '../assets/images/curd packed.jpg'
-import buttermilkPackedImage from '../assets/images/buttermilk packed - Copy.jpg'
-import palkovaPackedImage from '../assets/images/Palkova packed - Copy.jpg'
-import gheePackedImage from '../assets/images/Ghee packed - Copy.jpg'
-import paneerPackedImage from '../assets/images/paneer packed.jpg'
+import curdImage from '../assets/images/curd.png'
+import buttermilkImage from '../assets/images/butter milk.png'
+import palkovaImage from '../assets/images/palkova.png'
+import gheeImage from '../assets/images/ghee.png'
+import paneerImage from '../assets/images/paneer.png'
+
 
 export const products = [
   {
@@ -20,7 +16,7 @@ export const products = [
     image: curdImage,
     images: [
       curdImage,
-      curdPackedImage,
+      curdImage,
       buttermilkImage,
     ],
     description: 'Thick, creamy farm-fresh curd made from pure cow milk. Naturally fermented with live cultures for a tangy, wholesome taste.',
@@ -67,7 +63,7 @@ export const products = [
     image: buttermilkImage,
     images: [
       buttermilkImage,
-      buttermilkPackedImage,
+      buttermilkImage,
       curdImage,
     ],
     description: 'Cool, refreshing traditional buttermilk churned from fresh curd. A perfect summer drink that aids digestion and keeps you hydrated.',
@@ -114,7 +110,7 @@ export const products = [
     image: palkovaImage,
     images: [
       palkovaImage,
-      palkovaPackedImage,
+      palkovaImage,
       gheeImage,
     ],
     description: 'Rich, melt-in-your-mouth milk sweet made from pure milk and sugar. A traditional delicacy perfect for festivals and celebrations.',
@@ -159,7 +155,7 @@ export const products = [
     image: gheeImage,
     images: [
       gheeImage,
-      gheePackedImage,
+      gheeImage,
       curdImage,
     ],
     description: 'Aromatic, golden pure cow ghee made from hand-churned butter using the traditional bilona method. Rich in omega-3 and vitamins.',
@@ -206,7 +202,7 @@ export const products = [
     image: paneerImage,
     images: [
       paneerImage,
-      paneerPackedImage,
+      paneerImage,
       buttermilkImage,
     ],
     description: 'Soft, fresh, and crumbly paneer made daily from pure cow milk. No preservatives, no additives - just pure farm goodness.',
@@ -250,7 +246,7 @@ export const products = [
     image: curdImage,
     images: [
       curdImage,
-      curdPackedImage,
+      curdImage,
       buttermilkImage,
     ],
     description: 'Delicious low-fat curd with all the probiotic benefits of regular curd but with reduced fat content. Perfect for health-conscious families.',
@@ -294,7 +290,7 @@ export const products = [
     image: buttermilkImage,
     images: [
       buttermilkImage,
-      buttermilkPackedImage,
+      buttermilkImage,
       curdImage,
     ],
     description: 'Tangy and spicy masala buttermilk blended with ginger, green chili, and curry leaves. A traditional digestive drink from our farms.',
@@ -338,7 +334,7 @@ export const products = [
     image: gheeImage,
     images: [
       gheeImage,
-      gheePackedImage,
+      gheeImage,
       curdImage,
     ],
     description: 'Certified organic ghee made from grass-fed desi cow milk. The bilona method ensures maximum nutrients and a rich, nutty aroma.',
@@ -382,7 +378,7 @@ export const products = [
     image: paneerImage,
     images: [
       paneerImage,
-      paneerPackedImage,
+      paneerImage,
       curdImage,
     ],
     description: 'Extra soft and creamy malai paneer made from full cream milk. Perfect for rich curries, paneer tikka, and desserts.',
@@ -426,7 +422,7 @@ export const products = [
     image: palkovaImage,
     images: [
       palkovaImage,
-      palkovaPackedImage,
+      palkovaImage,
       paneerImage,
     ],
     description: 'Our signature special palkova made with a hint of cardamom and nuts. A luxurious treat that melts in your mouth with every bite.',
@@ -472,7 +468,7 @@ export const products = [
     image: buttermilkImage,
     images: [
       buttermilkImage,
-      buttermilkPackedImage,
+      buttermilkImage,
       curdImage,
     ],
     description: 'Sweet, creamy lassi made from fresh curd blended with pure cane sugar. A refreshing Punjabi classic that energizes your day.',
@@ -516,7 +512,7 @@ export const products = [
     image: paneerImage,
     images: [
       paneerImage,
-      paneerPackedImage,
+      paneerImage,
       curdImage,
     ],
     description: 'Premium A2 beta-casein paneer made from heritage breed cow milk. The healthiest choice for your family with superior digestibility.',

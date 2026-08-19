@@ -38,8 +38,8 @@ const qualityPoints = [
 export default function DairyQualityGuide() {
   return (
     <section className="bg-soft-cream">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
-        <div className="text-center mb-12 md:mb-16">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-12">
+        <div className="text-center mb-8">
           <span className="font-label-caps text-label-caps uppercase tracking-widest text-regal-gold mb-4 block">
             Our Promise
           </span>
@@ -51,12 +51,12 @@ export default function DairyQualityGuide() {
             Four pillars that guarantee every product you receive meets the highest standards of quality, taste, and nutrition.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {qualityPoints.map((item) => (
             <Link
               key={item.id}
               to={item.link}
-              className="group bg-surface-white border border-outline-variant p-8 rounded-sm hover:border-regal-gold/50 transition-all duration-300 text-center"
+              className="group bg-surface-white border border-outline-variant p-6 rounded-sm hover:border-regal-gold/50 transition-all duration-300 text-center"
             >
               <span className="material-symbols-outlined text-4xl text-regal-gold mb-4 block group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
@@ -66,14 +66,6 @@ export default function DairyQualityGuide() {
               <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{item.description}</p>
             </Link>
           ))}
-        </div>
-        <div className="text-center mt-12">
-          <Link
-            to="/collections"
-            className="inline-block bg-deep-emerald text-surface-white font-label-caps text-label-caps uppercase tracking-widest py-4 px-10 rounded hover:bg-deep-emerald/90 transition-colors"
-          >
-            Explore All Products
-          </Link>
         </div>
       </div>
     </section>

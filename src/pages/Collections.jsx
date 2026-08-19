@@ -31,7 +31,7 @@ export default function Collections() {
             <p className="text-on-surface-variant text-base max-w-2xl leading-relaxed">Discover our exquisite range of farm-fresh dairy products, crafted with tradition and delivered with care.</p>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-on-surface-variant text-sm">Showing 1-24 of 1,248 Items</span>
+            <span className="text-on-surface-variant text-sm">Showing 1-{products.length} of {products.length} Items</span>
             <div className="relative">
               <select
                 className="appearance-none bg-transparent border border-outline-variant rounded-none py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-deep-emerald focus:border-deep-emerald cursor-pointer"

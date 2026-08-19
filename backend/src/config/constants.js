@@ -30,6 +30,13 @@ export const PAYMENT_STATUS = {
   REFUNDED: 'refunded',
 }
 
+export const SUBSCRIPTION_STATUS = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED',
+}
+
 export const LOYALTY_TIERS = {
   BRONZE: 'Bronze',
   SILVER: 'Silver',

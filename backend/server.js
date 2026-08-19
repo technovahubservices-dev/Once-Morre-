@@ -12,6 +12,7 @@ import wishlistRoutes from './src/routes/wishlistRoutes.js'
 import orderRoutes from './src/routes/orderRoutes.js'
 import userRoutes from './src/routes/userRoutes.js'
 import inventoryRoutes from './src/routes/inventoryRoutes.js'
+import subscriptionRoutes from './src/routes/subscriptionRoutes.js'
 import { errorMiddleware, notFound } from './src/middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -21,9 +22,21 @@ const app = express()
 // Connect to database
 connectDB()
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+].filter(Boolean)
+
 // CORS
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL : true,
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Not allowed by CORS'))
+  },
   credentials: true,
 }))
 
@@ -49,6 +62,7 @@ app.use('/api/wishlist', wishlistRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/inventory', inventoryRoutes)
+app.use('/api/subscriptions', subscriptionRoutes)
 
 // Health check
 app.get('/health', (req, res) => {

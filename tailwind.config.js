@@ -61,19 +61,19 @@ export default {
         "inverse-surface": "#2f3130"
       },
       "borderRadius": {
-        "DEFAULT": "0.25rem",
-        "lg": "0.5rem",
-        "xl": "0.75rem",
-        "full": "9999px"
+        "DEFAULT": "0.25rem", /* Adjusted for consistent border radius */
+        "lg": "0.5rem", /* Adjusted for consistent border radius */
+        "xl": "0.75rem", 
+        "full": "9999px" 
       },
       "spacing": {
-        "unit": "4px",
-        "gutter": "24px",
-        "margin-mobile": "16px",
-        "margin-desktop": "64px",
-        "stack-sm": "8px",
-        "stack-md": "16px",
-        "stack-lg": "32px"
+        "unit": "4px", /* Adjusted for consistent spacing */
+        "gutter": "24px", /* Adjusted for consistent gutter spacing */
+        "margin-mobile": "12px", /* Adjusted for mobile devices */
+        "margin-desktop": "10px", /* Adjusted for desktop devices */
+        "stack-sm": "4px", /* Adjusted for small spacing */
+        "stack-md": "8px", /* Adjusted for medium spacing */
+        "stack-lg": "22px"  /* Adjusted for large spacing */
       },
       "fontFamily": {
         "label-sm": ["Montserrat", "Open Sans", "sans-serif"],
@@ -86,7 +86,7 @@ export default {
         "display-lg-mobile": ["Playfair Display", "serif"]
       },
       "fontSize": {
-        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], 
         "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
         "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
         "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],

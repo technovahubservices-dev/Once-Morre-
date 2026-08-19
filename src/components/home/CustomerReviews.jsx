@@ -3,8 +3,8 @@ import { useState } from 'react'
 const reviews = [
   {
     id: 1,
-    name: 'Priya Sharma',
-    location: 'Mumbai',
+    name: 'Priya ',
+    location: 'puducherry',
     rating: 5,
     text: 'The best curd I have ever tasted! So creamy and fresh. My whole family loves it. Delivery is always on time and the packaging is perfect.',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
@@ -40,8 +40,8 @@ export default function CustomerReviews() {
 
   return (
     <section className="bg-surface-white">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
-        <div className="text-center mb-16">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-12">
+        <div className="text-center mb-8">
           <span className="font-label-caps text-label-caps uppercase tracking-widest text-regal-gold mb-4 block">
             Testimonials
           </span>

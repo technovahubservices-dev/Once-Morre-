@@ -14,6 +14,9 @@ import Wishlist from '../pages/Wishlist.jsx'
 import CategoryPage from '../pages/CategoryPage.jsx'
 import NewArrivals from '../pages/NewArrivals.jsx'
 import Offers from '../pages/Offers.jsx'
+import Blogs from '../pages/Blogs.jsx'
+import Subscription from '../pages/Subscription.jsx'
+import About from '../pages/About.jsx'
 import Search from '../pages/Search.jsx'
 import PrivacyPolicy from '../pages/PrivacyPolicy.jsx'
 import TermsOfService from '../pages/TermsOfService.jsx'
@@ -85,6 +88,9 @@ function AppContent() {
           <Route path="/category/:name" element={<CategoryPage />} />
           <Route path="/new-arrivals" element={<NewArrivals />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/subscription" element={<Subscription />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import curdImage from '../../assets/images/curd.jpg'
-import buttermilkImage from '../../assets/images/buttermilk.jpg'
-import palkovaImage from '../../assets/images/palkova.jpg'
-import gheeImage from '../../assets/images/Ghee packed.jpg'
-import paneerImage from '../../assets/images/paneer.jpg'
+import curdImage from '../../assets/images/curd.png'
+import buttermilkImage from '../../assets/images/butter milk.png'
+import palkovaImage from '../../assets/images/palkova.png'
+import gheeImage from '../../assets/images/ghee.png'
+import paneerImage from '../../assets/images/paneer.png'
 
 const categories = [
   { name: 'Fresh Curd', image: curdImage, link: '/category/Curd' },

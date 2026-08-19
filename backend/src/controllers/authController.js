@@ -6,6 +6,7 @@ import { asyncHandler } from '../utils/asyncHandler.js'
 import User from '../models/User.js'
 import * as authService from '../services/authService.js'
 import { storeOTP, verifyOTP as checkOTP, verifyResetToken, clearOTP } from '../services/otpService.js'
+import Subscription from '../models/Subscription.js'
 
 export const register = asyncHandler(async (req, res) => {
   const result = await authService.register(req, res)
@@ -28,8 +29,31 @@ export const logout = asyncHandler(async (req, res) => {
 })
 
 export const getProfile = asyncHandler(async (req, res) => {
-  const result = await authService.getProfile(req, res)
-  return result
+  const user = await User.findById(req.user._id).select('-password')
+  if (!user) {
+    return errorResponse(res, 'User not found', HTTP_STATUS.NOT_FOUND)
+  }
+
+  const activeSubscription = await Subscription.findOne({ user: user._id, status: 'ACTIVE' })
+    .populate('product', 'name price images description')
+  
+  const userData = {
+    ...user.toObject(),
+    activeSubscription: activeSubscription ? {
+      id: activeSubscription._id,
+      plan: activeSubscription.plan,
+      quantity: activeSubscription.quantity,
+      offerPrice: activeSubscription.offerPrice,
+      originalPrice: activeSubscription.originalPrice,
+      status: activeSubscription.status,
+      activatedAt: activeSubscription.activatedAt,
+      nextBillingAt: activeSubscription.nextBillingAt,
+      nextDeliveryAt: activeSubscription.nextDeliveryAt,
+      product: activeSubscription.product,
+    } : null,
+  }
+  
+  return successResponse(res, userData, 'Profile fetched successfully')
 })
 
 export const updateProfile = asyncHandler(async (req, res) => {

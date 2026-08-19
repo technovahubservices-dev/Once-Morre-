@@ -1,4 +1,5 @@
 import User from '../models/User.js'
+import Subscription from '../models/Subscription.js'
 import { HTTP_STATUS } from '../config/constants.js'
 import { successResponse, errorResponse } from '../utils/apiResponse.js'
 import { asyncHandler } from '../utils/asyncHandler.js'
@@ -13,7 +14,27 @@ export const getUserById = asyncHandler(async (req, res) => {
   if (!user) {
     return errorResponse(res, 'User not found', HTTP_STATUS.NOT_FOUND)
   }
-  return successResponse(res, user, 'User fetched successfully')
+  
+  const activeSubscription = await Subscription.findOne({ user: user._id, status: 'ACTIVE' })
+    .populate('product', 'name price images description')
+  
+  const userData = {
+    ...user.toObject(),
+    activeSubscription: activeSubscription ? {
+      id: activeSubscription._id,
+      plan: activeSubscription.plan,
+      quantity: activeSubscription.quantity,
+      offerPrice: activeSubscription.offerPrice,
+      originalPrice: activeSubscription.originalPrice,
+      status: activeSubscription.status,
+      activatedAt: activeSubscription.activatedAt,
+      nextBillingAt: activeSubscription.nextBillingAt,
+      nextDeliveryAt: activeSubscription.nextDeliveryAt,
+      product: activeSubscription.product,
+    } : null,
+  }
+  
+  return successResponse(res, userData, 'User fetched successfully')
 })
 
 export const updateUser = asyncHandler(async (req, res) => {

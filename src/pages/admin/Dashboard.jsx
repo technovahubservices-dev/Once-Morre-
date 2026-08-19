@@ -174,7 +174,7 @@ export default function Dashboard() {
         backgroundColor: '#002147',
         titleFont: { family: 'Montserrat', size: 12 },
         bodyFont: { family: 'Montserrat', size: 14, weight: 'bold' },
-        padding: 12,
+        padding: 10, /* Adjusted for better spacing in tooltip */
         displayColors: false,
         callbacks: {
           label: (context) => '₹ ' + context.parsed.y.toLocaleString(),
@@ -225,7 +225,7 @@ export default function Dashboard() {
           font: { family: 'Montserrat', size: 12 },
           color: '#44474e',
           usePointStyle: true,
-          padding: 20,
+          padding: 8, /* Adjusted for better spacing between legend items */
         },
       },
         tooltip: {

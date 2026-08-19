@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/home/Hero.jsx'
+import ButtermilkVariants from '../components/home/ButtermilkVariants.jsx'
 import SlowMovingImages from '../components/home/SlowMovingImages.jsx'
 import ProductGrid from '../components/product/ProductGrid.jsx'
 import PureMilkGoodness from '../components/home/PureMilkGoodness.jsx'
@@ -31,10 +32,13 @@ export default function Home() {
       {/* 2. Slow Moving Images */}
       <SlowMovingImages />
 
-      {/* 3. Featured Products */}
+      {/* 3. Buttermilk Variants */}
+      <ButtermilkVariants />
+
+      {/* 4. Featured Products */}
       <section className="bg-surface-white">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
-          <div className="text-center mb-16">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-12">
+          <div className="text-center mb-8">
             <span className="font-label-caps text-label-caps uppercase tracking-widest text-regal-gold mb-4 block">
               Handpicked For You
             </span>
@@ -43,43 +47,51 @@ export default function Home() {
             </h2>
             <div className="h-[1px] w-12 bg-regal-gold mx-auto" />
           </div>
+
           {featuredProducts.length > 0 ? (
             <ProductGrid products={featuredProducts} />
           ) : (
             <div className="text-center py-12">
               <p className="font-body-md text-body-md text-on-surface-variant">Discover our most loved dairy products.</p>
             </div>
+            
           )}
-          <div className="text-center mt-12">
+        </div>
+        
+      </section>
+
+      <section className="bg-surface-white">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-10 md:pb-12">
+          <div className="text-center">
             <Link
               to="/collections"
-              className="inline-block border-b border-deep-emerald text-deep-emerald font-label-caps text-label-caps uppercase tracking-widest pb-1 hover:text-regal-gold hover:border-regal-gold transition-colors"
+              className="inline-block bg-deep-emerald text-surface-white font-label-caps text-label-caps uppercase tracking-widest py-3 px-8 rounded hover:bg-deep-emerald/90 transition-colors"
             >
-              View All Products
+              Explore All Product
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 3. Pure Milk Goodness */}
-      <PureMilkGoodness />
-
-      {/* 4. Why Choose ONCE MORRE */}
+      {/* 5. Why Choose ONCE MORRE */}
       <DairyQualityGuide />
 
-      {/* 5. Dairy Journey */}
+      {/* 6. Dairy Journey */}
       <StorySection />
 
-      {/* 6. Subscription */}
-      <Subscription />
-
-      {/* 7. Customer Reviews */}
-      <CustomerReviews />
-
-      {/* 8. Blogs */}
+      {/* 7. Blogs */}
       <Blogs />
 
-      {/* 9. Newsletter */}
+      {/* 8. Subscription */}
+      <Subscription />
+
+      {/* 9. Customer Reviews */}
+      <CustomerReviews />
+
+      {/* 10. Pure Milk Goodness */}
+      <PureMilkGoodness />
+ 
+      {/* 11. Newsletter */}
       <Newsletter />
     </>
   )

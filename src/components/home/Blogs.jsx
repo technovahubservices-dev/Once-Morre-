@@ -30,8 +30,8 @@ const blogs = [
 export default function Blogs() {
   return (
     <section className="bg-soft-cream">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
-        <div className="text-center mb-16">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-12">
+        <div className="text-center mb-8">
           <span className="font-label-caps text-label-caps uppercase tracking-widest text-regal-gold mb-4 block">
             From Our Kitchen
           </span>
