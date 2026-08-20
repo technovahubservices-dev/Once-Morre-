@@ -10,6 +10,18 @@ export function AuthProvider({ children }) {
 
   const isAuthenticated = !!user && !!token
 
+  const safeJsonParse = async (response) => {
+    const text = await response.text()
+    if (!text.trim()) {
+      return null
+    }
+    try {
+      return JSON.parse(text)
+    } catch {
+      return null
+    }
+  }
+
   const checkAuth = async () => {
     const storedToken = localStorage.getItem('token')
     if (!storedToken) {
@@ -24,9 +36,15 @@ export function AuthProvider({ children }) {
       })
 
       if (res.ok) {
-        const data = await res.json()
-        setUser(data.data)
-        setToken(storedToken)
+        const data = await safeJsonParse(res)
+        if (data?.data) {
+          setUser(data.data)
+          setToken(storedToken)
+        } else {
+          localStorage.removeItem('token')
+          setUser(null)
+          setToken(null)
+        }
       } else {
         localStorage.removeItem('token')
         setUser(null)
@@ -53,10 +71,14 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ email, password }),
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
 
     if (!res.ok) {
-      throw new Error(data.message || 'Login failed')
+      throw new Error(data?.message || 'Login failed. Please check your email and password.')
+    }
+
+    if (!data?.data) {
+      throw new Error('Unexpected response from server. Please try again.')
     }
 
     const { token: newToken, user: userData } = data.data
@@ -76,13 +98,16 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ name, email, password }),
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
 
     if (!res.ok) {
-      throw new Error(data.message || 'Registration failed')
+      throw new Error(data?.message || 'Registration failed. Please try again.')
     }
 
-    // Auto-login after successful registration
+    if (!data?.data) {
+      throw new Error('Unexpected response from server. Please try again.')
+    }
+
     return login(email, password)
   }
 
@@ -119,9 +144,9 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ currentPassword, newPassword }),
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
     if (!res.ok) {
-      throw new Error(data.message || 'Failed to change password')
+      throw new Error(data?.message || 'Failed to change password')
     }
 
     return data
@@ -138,9 +163,9 @@ export function AuthProvider({ children }) {
       body: JSON.stringify(addressData),
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
     if (!res.ok) {
-      throw new Error(data.message || 'Failed to add address')
+      throw new Error(data?.message || 'Failed to add address')
     }
 
     return data
@@ -157,9 +182,9 @@ export function AuthProvider({ children }) {
       body: JSON.stringify(addressData),
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
     if (!res.ok) {
-      throw new Error(data.message || 'Failed to update address')
+      throw new Error(data?.message || 'Failed to update address')
     }
 
     return data
@@ -172,9 +197,9 @@ export function AuthProvider({ children }) {
       credentials: 'include',
     })
 
-    const data = await res.json()
+    const data = await safeJsonParse(res)
     if (!res.ok) {
-      throw new Error(data.message || 'Failed to delete address')
+      throw new Error(data?.message || 'Failed to delete address')
     }
 
     return data
