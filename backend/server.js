@@ -3,6 +3,8 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import rateLimit from 'express-rate-limit'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import connectDB from './src/config/db.js'
 import authRoutes from './src/routes/authRoutes.js'
 import productRoutes from './src/routes/productRoutes.js'
@@ -15,7 +17,8 @@ import inventoryRoutes from './src/routes/inventoryRoutes.js'
 import subscriptionRoutes from './src/routes/subscriptionRoutes.js'
 import { errorMiddleware, notFound } from './src/middleware/errorMiddleware.js'
 
-dotenv.config()
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+dotenv.config({ path: path.join(__dirname, '.env') })
 
 const app = express()
 
@@ -26,6 +29,8 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
   'http://127.0.0.1:5173',
+  'https://www.oncemorre.in',
+  'https://oncemorre.in/'
 ].filter(Boolean)
 
 // CORS
@@ -49,8 +54,8 @@ const limiter = rateLimit({
 app.use('/api', limiter)
 
 // Body parsers
-app.use(express.json({ limit: '10kb' }))
-app.use(express.urlencoded({ extended: true, limit: '10kb' }))
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 app.use(cookieParser())
 
 // Routes
