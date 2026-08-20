@@ -150,13 +150,10 @@ export default function Header() {
             <button onClick={() => setMobileMenuOpen(false)} className="self-end">
               <span className="material-symbols-outlined">close</span>
             </button>
-            <Link to="/collections" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Dairy Products</Link>
-            <Link to="/category/Curd" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Curd</Link>
-            <Link to="/category/Buttermilk" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Buttermilk</Link>
-            <Link to="/category/Ghee" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Ghee</Link>
-            <Link to="/category/Sweets" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Sweets</Link>
-            <Link to="/category/Paneer" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Paneer</Link>
-            <Link to="/new-arrivals" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">New Arrivals</Link>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Home</Link>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">About</Link>
+            <Link to="/subscription" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Subscription</Link>
+            <Link to="/blogs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Blogs</Link>
             <Link to="/offers" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Offers</Link>
             <Link to="/search" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Search</Link>
             {isAuthenticated ? (

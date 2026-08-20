@@ -206,35 +206,9 @@ export default function AdminProducts() {
     })
   }
 
-  
-const MAX_FILE_SIZE = 2 * 1024 * 1024 // 2MB
-  const compressImage = async (file) => {
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1200,
-      useFileSystemAccessAPI: false,
-    }
-    try {
-      const { default: imageCompression } = await import('browser-image-compression')
-      const compressed = await imageCompression(file, options)
-      return compressed
-    } catch {
-      return file
-    }
-  }
-
   const handleFileUpload = async (e) => {
     const files = Array.from(e.target.files || [])
     if (!files.length) return
-
-    const oversized = files.filter((f) => f.size > MAX_FILE_SIZE)
-    if (oversized.length > 0) {
-      const proceed = confirm(`One or more selected images exceed 2MB. Would you like to automatically compress them before uploading? Click "Cancel" to choose smaller images.`)
-      if (!proceed) {
-        e.target.value = ''
-        return
-      }
-    }
 
     setUploading(true)
     const newPreviews = []
@@ -242,17 +216,11 @@ const MAX_FILE_SIZE = 2 * 1024 * 1024 // 2MB
 
     for (const file of files) {
       if (!file.type.startsWith('image/')) continue
-
-      let processedFile = file
-      if (file.size > MAX_FILE_SIZE) {
-        processedFile = await compressImage(file)
-      }
-
       const reader = new FileReader()
       const dataUrl = await new Promise((resolve, reject) => {
         reader.onload = () => resolve(reader.result)
         reader.onerror = reject
-        reader.readAsDataURL(processedFile)
+        reader.readAsDataURL(file)
       })
       newPreviews.push(dataUrl)
       newImages.push(dataUrl)

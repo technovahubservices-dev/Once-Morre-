@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 import User from '../models/User.js'
 import Product from '../models/Product.js'
 import Category from '../models/Category.js'

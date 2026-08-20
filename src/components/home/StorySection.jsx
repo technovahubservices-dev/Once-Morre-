@@ -10,14 +10,14 @@ export default function StorySection() {
               <img
                 src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&h=1000&fit=crop"
                 alt="Our dairy farm"
-                className="w-48 h-60 object-cover"
+                className="w-100 h-150 object-cover"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 bg-soft-cream rounded-sm overflow-hidden border-4 border-surface-white shadow-lg hidden md:block">
               <img
                 src="https://images.unsplash.com/photo-1559598467-f8b76c8155d0?w=400&h=400&fit=crop"
                 alt="Fresh dairy products"
-                className="w-32 h-32 object-cover"
+                className="w-50 h-50 object-cover"
               />
             </div>
           </div>

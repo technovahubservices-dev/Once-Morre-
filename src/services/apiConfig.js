@@ -1,6 +1,6 @@
 const defaultApiUrl = import.meta.env.DEV
-  ? 'http://localhost:8000/api'
-  : 'https://backend-oncemorre.onrender.com/api'
+  ? 
+  'https://backend-oncemorre.onrender.com/api':' '
 
 const configuredApiUrl = import.meta.env.VITE_API_URL || defaultApiUrl
 
